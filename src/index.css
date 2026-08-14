@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-ivory antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  ::selection {
+    background: #B8925A;
+    color: #0B0B0A;
+  }
+
+  :focus-visible {
+    outline: 2px solid #D3AD73;
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a352c;
+    border-radius: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .grain-overlay {
+    @apply pointer-events-none fixed inset-0 z-[999] bg-grain;
+    mix-blend-mode: overlay;
+  }
+
+  .eyebrow {
+    @apply text-xs sm:text-sm tracking-widest2 uppercase text-gold font-medium;
+  }
+
+  .container-edit {
+    @apply max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16;
+  }
+}
